@@ -1,0 +1,17 @@
+Rob Pike 
+
+Ken thompshon, UTF 8 -> karakter yang formatnya untuk komputer atau sebuah mesin
+
+GO -> bahasa pemrograman yang statically-typed
+
+GO bahasa yang perlu dikompilasi menjadi sebuah bytecode atau binary yang kemudian dijalankan oleh virtual machine
+
+Go -> Bersifat prosedural seperti C/perl, tidak menggunakan konsep OOP
+
+1. Go mudah dipahami dan dipelajari
+2. Go ringan memori dan juga cepat
+3. Go memudahkan kita dalam menulis program yang berjalan secara konkuren
+4. Go memiliki proses kompilasi yang cepat
+5. Go memiliki dukungan komunitas yang bagus
+
+Backend Engineer adalah seseorang yang bertanggung jawab untuk mendesain, membangun dan menjada perangkat lunak yang berjalan di server (server side).
