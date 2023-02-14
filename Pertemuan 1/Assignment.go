@@ -169,6 +169,20 @@ func (l *list_t) remove(data_t interface{}){
 	}
 }
 
+func(l *list_t) getAt(index uint)(interface{}){
+	if(!list_empty(l)){
+		temp := l.head
+		var idx uint = 0;
+
+		for temp.next != nil && idx < index{
+			temp = temp.next
+			idx++
+		}
+		return temp.data
+	}
+	return 0
+}
+
 // Mengeluarkan data paling depan
 func show_front(l *list_t) (interface{}) {
 	if(!list_empty(l)){
@@ -217,13 +231,16 @@ func main(){
 	show(&s1)
 
 	fmt.Println()
-	s1.removeAt(3)
-	s1.removeAt(1)
-	s1.remove(200)
+	fmt.Println("Nilai pada posisi ke-2 adalah", s1.getAt(2))
+	// s1.removeAt(3)
+	// s1.removeAt(1)
+	// s1.remove(200)
 	show(&s1)
 
 	fmt.Println()
 	fmt.Println("Nilai depan : ", show_front(&s1))
 	fmt.Println("Nilai belakang : ", show_back(&s1))
+	fmt.Println("Nilai pada posisi ke-2 adalah", s1.getAt(2))
+	s1.removeAt(2)
 	show(&s1)
 }
