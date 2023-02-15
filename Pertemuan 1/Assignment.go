@@ -78,7 +78,7 @@ func (l *list_t) pop_back(){
 
 		// Jika data cuman 1
 		if(currNode.next == nil){
-			currNode = nil
+			// currNode = nil
 			l.head = nil
 			l._size--
 			return
@@ -87,7 +87,7 @@ func (l *list_t) pop_back(){
 		// Jika data lebih dari 1
 		for nextNode.next != nil {
 			currNode = nextNode
-			nextNode = nextNode.next
+			nextNode = nextNode.next // 1 2
 		}
 		currNode.next = nil
 		l._size--
@@ -95,23 +95,23 @@ func (l *list_t) pop_back(){
 }
 
 // Menambahkan data ke dalam index tertentu
-func (l *list_t) insertAt(index uint, data_t interface{}){
+func (l *list_t) insertAt(index uint, data_t interface{}){ // 2 12
 	// Jika list kosong atau menambahkan daya di luar size nya maka masukkan ke paling belakang
 	if(list_empty(l) || index >= l._size){
-		l.push_back(data_t)
+		l.push_back(data_t) // 2, 3
 		return
-	} else if(index <= 0){ // Jika mau menambahkan ke index awal
+	} else if(index <= 0){ // -2, 
 		l.push_front(data_t)
 		return
-	} 
+	} // 
 
 	newNode := &node_t{data: data_t, next: nil}
-	temp := l.head
+	temp := l.head // 8
 	var idx uint = 0
 	
-	for temp.next !=  nil && idx < index - 1{
-		temp = temp.next
-		idx++
+	for temp.next !=  nil && idx < index - 1{ // 1
+		temp = temp.next // 8, 9(tenp), 13(insert), 10, 12
+		idx++ // 1
 	}
 	newNode.data = data_t
 	newNode.next = temp.next
@@ -169,16 +169,17 @@ func (l *list_t) remove(data_t interface{}){
 	}
 }
 
-func(l *list_t) getAt(index uint)(interface{}){
+// Mengeluarkan data pada posisi index ke
+func(l *list_t) getAt(index uint)(interface{}){ //1
 	if(!list_empty(l)){
-		temp := l.head
-		var idx uint = 0;
+		temp := l.head // 4, 5(1), 6
+		var idx uint = 0; 
 
 		for temp.next != nil && idx < index{
-			temp = temp.next
+			temp = temp.next // 
 			idx++
 		}
-		return temp.data
+		return temp.data // 5
 	}
 	return 0
 }
