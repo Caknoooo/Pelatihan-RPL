@@ -1,0 +1,16 @@
+HTTP : Hypertext Transfer Protocol 
+merupakan fondasi dari World Wide Web(WWW)
+
+HTTP disini merupakan sebuah aturan atau cara berkomunikasi antara perangkat dalam jaringan
+
+gRPC sebuah metode REST yang lebih cepat dari REST API, biasa digunakan untuk microservice
+
+Istilah" baru:
+GraphQL, gRPC
+
+Tugas : 
+
+- Todolist
+1. Menambahkan data
+2. Menghapus data
+3. Show data
