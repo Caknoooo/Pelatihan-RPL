@@ -1,0 +1,12 @@
+CREATE DATABASE todolist_rpl;
+
+CREATE TABLE to_do_list(
+  ID SERIAL PRIMARY KEY,
+  Nama VARCHAR(50) NOT NULL,
+  Aktifitas VARCHAR(50) NOT NULL,
+  Mulai TIMESTAMP NOT NULL,
+  Selesai TIMESTAMP NOT NULL,  
+  IsDone boolean NOT NULL
+);
+
+DROP DATABASE todolist_rpl;
