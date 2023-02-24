@@ -16,4 +16,3 @@ func ConnectDatabase()(*sql.DB, error){
 	fmt.Println("Database Connected")
 	return db, nil
 }
-

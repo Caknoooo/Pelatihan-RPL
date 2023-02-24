@@ -14,7 +14,7 @@ type UserModel struct{
 func NewUserModel() *UserModel{
 	conn, err := config.ConnectDatabase()
 	if err != nil{
-		panic(err)
+		panic(err) 
 	}
 
 	return &UserModel{
@@ -28,8 +28,8 @@ func (u *UserModel) GetUserById(id int)(entities.User, error){
 	row := u.connection.QueryRow("SELECT * FROM to_do_list WHERE id = $1", id)
 	err := row.Scan(&user.Id, &user.Nama, &user.Aktifitas, &user.Mulai, &user.Selesai, &user.Done)
 	if err != nil{
-		return entities.User{}, nil
-	}
+		return entities.User{}, err
+	} // 
 
 	return user, nil
 }
@@ -37,7 +37,7 @@ func (u *UserModel) GetUserById(id int)(entities.User, error){
 func (u *UserModel) GetAllUser()([]entities.User, error){
 	var result []entities.User
 
-	rows, err := u.connection.Query("SELECT * FROM to_do_list")
+	rows, err := u.connection.Query("SELECT * FROM to_do_list") // 
 	if err != nil{
 		return nil, err
 	}
@@ -47,16 +47,16 @@ func (u *UserModel) GetAllUser()([]entities.User, error){
 		rows.Scan(&user.Id, &user.Nama, &user.Aktifitas, &user.Mulai, &user.Selesai, &user.Done)
 		result = append(result, user)
 	}
-
+	
 	return result, nil
 }
 
-func (u *UserModel) Insert(user entities.User)error{
-	_, err := u.connection.Exec("INSERT INTO to_do_list(id, nama, aktifitas, mulai, selesai, isdone) VALUES($1, $2, $3, $4, $5, $6)", user.Id, user.Nama, user.Aktifitas, user.Mulai, user.Selesai, user.Done)
+func (u *UserModel) Insert(user entities.User) error{
+	_, err := u.connection.Exec("INSERT INTO to_do_list(nama, aktifitas, mulai, selesai, isdone) VALUES($1, $2, $3, $4, $5)", user.Nama, user.Aktifitas, user.Mulai, user.Selesai, user.Done)
 	if err != nil{
 		return err
 	}
-	
+	// 
 	return nil
 } 
 

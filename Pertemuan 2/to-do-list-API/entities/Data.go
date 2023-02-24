@@ -10,5 +10,5 @@ type User struct{
 	Aktifitas string `json:"aktifitas"`
 	Mulai time.Time `json:"mulai"`
 	Selesai time.Time `json:"selesai"`
-	Done bool `json:"done"`
+	Done bool `json:"done"` // Perlu diperbaiki
 }
